@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<!-- SEO: diese Tags werden automatisch aus inhalt.js gefüllt -->
+<title id="meta-title">Joey Blackwood — Berlin Kreuzberg</title>
+<meta name="description" id="meta-desc" content=""/>
+<meta name="keywords"    id="meta-keys" content=""/>
+<meta name="robots"      content="index, follow"/>
+<link rel="canonical"    id="meta-canon" href=""/>
+
+<!-- Open Graph (für Social Media Vorschau) -->
+<meta property="og:type"        content="website"/>
+<meta property="og:title"       id="og-title" content=""/>
+<meta property="og:description" id="og-desc"  content=""/>
+<meta property="og:url"         id="og-url"   content=""/>
+<meta property="og:image"       id="og-img"   content=""/>
+
+<!-- Schema.org strukturierte Daten für Google (LocalBusiness) -->
+<script type="application/ld+json" id="schema-json"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,200;0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+
+<style>
+/* ═══════════════════════════ TOKENS ═══════════════════════════ */
+:root{
+  --ink:#0e0d0b;--ink2:#161410;--ink3:#1e1c17;
+  --parch:#d4c9b6;--parch2:#bfb3a0;
+  --rose:#b8856a;--rose2:#8a5f4a;
+  --paper:#f2ede6;--body:#9a9186;--muted:#5c564e;
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --e1:cubic-bezier(0.16,1,0.3,1);--e2:cubic-bezier(0.25,0.46,0.45,0.94);
+}
+/* ═══════════════════════════ RESET ════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--body);font-family:var(--sans);font-weight:300;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+input,select,textarea,button{font-family:var(--sans);outline:none;border-radius:0}
+.w{max-width:1220px;margin:0 auto;padding:0 3rem}
+/* Watermark */
+.wm{position:fixed;right:0;top:0;bottom:0;width:26px;display:flex;align-items:center;justify-content:center;z-index:50;pointer-events:none}
+.wm span{writing-mode:vertical-rl;font-size:.55rem;letter-spacing:.38em;text-transform:uppercase;color:rgba(212,201,182,.11);white-space:nowrap;font-weight:300}
+/* Animations */
+.lm{display:block;overflow:hidden;padding-bottom:.05em}
+.lm .i{display:block;transform:translateY(112%);opacity:0;transition:transform 1s var(--e1),opacity .6s var(--e2)}
+.lm.on .i{transform:translateY(0);opacity:1}
+.fu{opacity:0;transform:translateY(26px);transition:opacity 1s var(--e1),transform 1s var(--e1)}
+.fu.on{opacity:1;transform:translateY(0)}
+.s1{transition-delay:.1s}.s2{transition-delay:.2s}.s3{transition-delay:.3s}.s4{transition-delay:.4s}
+.rule{height:1px;background:rgba(212,201,182,.08)}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.7rem;padding:.95rem 2.2rem;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:400;cursor:pointer;border:none;transition:all .4s var(--e1)}
+.btn-rose{background:var(--rose);color:var(--ink)}.btn-rose:hover{background:var(--parch);transform:translateX(4px)}
+.btn-outline{background:transparent;border:1px solid rgba(212,201,182,.2);color:var(--parch2)}.btn-outline:hover{border-color:var(--parch2);color:var(--paper)}
+.btn-full{width:100%;justify-content:center}
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.6rem 3rem;transition:background .6s,border-color .6s;border-bottom:1px solid transparent}
+.nav.s{background:rgba(14,13,11,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-color:rgba(212,201,182,.08)}
+.nav-logo{font-family:var(--serif);font-size:1.1rem;color:var(--parch2)}
+.nav-links{display:flex;gap:2.8rem;align-items:center}
+.nav-links a{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);position:relative;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:1px;background:var(--rose);transition:width .4s var(--e1)}
+.nav-links a:hover{color:var(--parch)}.nav-links a:hover::after{width:100%}
+.nav-cta{border:1px solid rgba(184,133,106,.35)!important;padding:.5rem 1.4rem;color:var(--rose)!important}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:rgba(184,133,106,.1)!important;border-color:var(--rose)!important;color:var(--paper)!important}
+.burger{display:none;background:none;border:none;color:var(--parch2);font-size:1.4rem;cursor:pointer}
+.mob{display:none;flex-direction:column;background:rgba(14,13,11,.98);padding:2rem 3rem 3rem;gap:1.6rem;border-top:1px solid rgba(212,201,182,.07)}
+.mob.on{display:flex}
+.mob a{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--body);padding-bottom:1.3rem;border-bottom:1px solid rgba(212,201,182,.07);transition:color .3s}
+.mob a:hover{color:var(--parch)}
+/* HERO */
+.hero{position:relative;height:100svh;min-height:700px;overflow:hidden;display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:0}
+.hero-img{position:absolute;inset:0;width:100%;height:115%;top:-8%;object-fit:cover;object-position:center top;opacity:0;transition:opacity 2.2s ease}
+.hero-img.on{opacity:1}
+.hero-vig{position:absolute;inset:0;background:linear-gradient(to right,rgba(14,13,11,.65) 0%,transparent 42%,transparent 60%,rgba(14,13,11,.45) 100%),linear-gradient(to top,rgba(14,13,11,1) 0%,rgba(14,13,11,.45) 22%,transparent 50%);pointer-events:none}
+.hero-content{position:relative;z-index:3;padding:0 3rem 5rem;width:100%;display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:4rem}
+.hero-eyebrow{font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--rose);display:block;margin-bottom:1.2rem}
+.hero-name{font-family:var(--sans);font-weight:200;font-size:clamp(4rem,8vw,8.5rem);line-height:.92;color:var(--paper);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.8rem}
+.hero-name em{font-style:normal;display:block;color:var(--parch2);font-size:.55em;letter-spacing:.35em;font-weight:300;margin-top:.4rem}
+.hero-sub{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.hero-right{display:flex;flex-direction:column;align-items:flex-end;gap:2.5rem;padding-bottom:.4rem}
+.hero-tagline{font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,1.5vw,1.3rem);color:var(--parch2);line-height:1.65;text-align:right;max-width:360px}
+.hero-cta-wrap{display:flex;align-items:center;gap:1.5rem}
+.hero-dots{display:flex;gap:.4rem}
+.hdot{width:20px;height:1px;background:var(--muted);border:none;cursor:pointer;padding:5px 0;transition:width .4s var(--e1),background .3s;display:block}
+.hdot.on{width:40px;background:var(--rose)}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.hero-scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--rose),transparent);animation:spulse 2.4s ease-in-out infinite}
+@keyframes spulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+.hero-scroll span{font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+/* ABOUT */
+.about{padding:10rem 0;background:var(--ink)}
+.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:8rem;align-items:start}
+.about-col-img{position:sticky;top:8rem}
+.about-main-img{width:100%;height:660px;object-position:center top}
+.about-pair{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:5px}
+.about-pair img{height:210px;object-position:center top}
+.about-label{display:block;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rose);margin-bottom:2.5rem}
+.about-h{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3.6rem);color:var(--paper);line-height:1.05;margin-bottom:3.5rem;font-weight:400}
+.about-h em{font-style:italic;color:var(--parch2)}
+.about-body p{font-size:.96rem;color:var(--body);line-height:1.9;margin-bottom:1.5rem}
+.about-body p:last-child{margin-bottom:0}
+.chem-box{margin-top:4rem;padding:2.2rem 2.5rem;border:1px solid rgba(184,133,106,.2);border-left:2px solid var(--rose2);background:rgba(184,133,106,.04)}
+.chem-box p{font-size:.9rem;color:var(--body);line-height:1.85;margin-bottom:.9rem}
+.chem-box p:last-child{margin-bottom:0}
+.chem-box strong{color:var(--parch);font-weight:400}
+/* SERVICES */
+.services{background:var(--ink2);padding:8rem 0 0}
+.services-head{padding-bottom:5rem}
+.svc-head-label{display:block;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rose);margin-bottom:1.5rem}
+.svc-head-h{font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.8rem);color:var(--paper);line-height:1.05;font-weight:400}
+.svc-head-h em{font-style:italic;color:var(--parch2)}
+.sp{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(212,201,182,.08);transition:background .5s}
+.sp:hover{background:rgba(212,201,182,.015)}
+.sp-img{overflow:hidden;min-height:380px}
+.sp-img img{width:100%;height:100%;min-height:380px;object-position:center top;transition:transform .9s var(--e1)}
+.sp:hover .sp-img img{transform:scale(1.05)}
+.sp-text{padding:4rem;display:flex;flex-direction:column;justify-content:space-between}
+.sp:nth-child(even){direction:rtl}.sp:nth-child(even)>*{direction:ltr}
+.sp-n{font-family:var(--serif);font-style:italic;font-size:.8rem;color:var(--muted);display:block;margin-bottom:1.5rem}
+.sp-title{font-family:var(--serif);font-size:clamp(1.8rem,2.8vw,2.6rem);color:var(--paper);line-height:1.1;font-weight:400;margin-bottom:1.5rem}
+.sp-title em{font-style:italic;color:var(--parch2)}
+.sp-body{font-size:.9rem;color:var(--body);line-height:1.85;flex:1}
+.sp-body p{margin-bottom:1rem}.sp-body p:last-child{margin-bottom:0}
+.sp-body em{font-style:italic;color:var(--parch2)}
+.sp-foot{margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(212,201,182,.07);display:flex;justify-content:space-between;align-items:baseline}
+.sp-price{font-family:var(--serif);font-size:1.6rem;color:var(--parch2)}
+.sp-dur{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.full-strip{border-top:1px solid rgba(212,201,182,.08);padding:3rem;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;background:var(--ink3)}
+.full-strip .fl{display:block;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--rose);margin-bottom:.7rem}
+.full-strip p{font-size:.9rem;color:var(--body);max-width:560px;line-height:1.8;margin-bottom:.3rem}
+/* PULL QUOTE */
+.pq{padding:7rem 0;background:var(--ink);border-top:1px solid rgba(212,201,182,.07);border-bottom:1px solid rgba(212,201,182,.07)}
+.pq-inner{max-width:900px;margin:0 auto;padding:0 3rem;text-align:center}
+.pq-mark{font-family:var(--serif);font-size:5rem;line-height:.4;color:var(--rose2);opacity:.4;display:block;margin-bottom:1.5rem}
+.pq-text{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.4rem);font-style:italic;color:var(--paper);line-height:1.5}
+.pq-attr{display:block;margin-top:2rem;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rose2)}
+/* ANZIEHUNG */
+.attr{padding:9rem 0;background:var(--ink2)}
+.attr-grid{display:grid;grid-template-columns:1fr 1fr;gap:9rem;align-items:center}
+.attr-img-wrap{position:relative}
+.attr-img{width:100%;height:660px;object-position:center top}
+.attr-accent{position:absolute;bottom:-2.5rem;right:-2.5rem;width:45%;height:200px;border:3px solid var(--ink2);box-shadow:0 0 0 1px rgba(184,133,106,.15);overflow:hidden}
+.attr-accent img{width:100%;height:100%;object-position:center top}
+.attr-label{display:block;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rose);margin-bottom:2rem}
+.attr-h{font-family:var(--serif);font-size:clamp(1.9rem,3vw,2.8rem);color:var(--paper);line-height:1.1;font-weight:400;margin-bottom:2.5rem}
+.attr-h em{font-style:italic;color:var(--parch2)}
+.attr-body p{font-size:.95rem;color:var(--body);line-height:1.9;margin-bottom:1.3rem}
+.attr-body p:last-child{margin-bottom:0}
+.attr-body em{font-style:italic;color:var(--parch2)}
+/* REVIEWS */
+.reviews{padding:8rem 0;background:var(--ink);border-top:1px solid rgba(212,201,182,.07)}
+.reviews-top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:5rem}
+.rev-label{display:block;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rose);margin-bottom:1rem}
+.rev-h{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);color:var(--paper);line-height:1.05;font-weight:400}
+.rev-h em{font-style:italic;color:var(--parch2)}
+.rev-write-btn{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);border:1px solid rgba(212,201,182,.15);padding:.55rem 1.2rem;background:transparent;cursor:pointer;transition:all .3s;flex-shrink:0}
+.rev-write-btn:hover{border-color:var(--rose2);color:var(--parch2)}
+.reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(212,201,182,.07)}
+.rcard{background:var(--ink2);padding:3rem;transition:background .4s}
+.rcard:hover{background:var(--ink3)}
+.rcard-quote{font-family:var(--serif);font-size:3rem;line-height:.5;color:var(--rose2);opacity:.35;display:block;margin-bottom:1.5rem}
+.rcard-text{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--parch2);line-height:1.65;margin-bottom:2rem}
+.rcard-foot{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.rcard-person{font-size:.7rem;color:var(--muted);letter-spacing:.05em}
+.rcard-stars{color:var(--rose2);font-size:.7rem}
+/* REVIEW MODAL */
+.rev-modal-bg{display:none;position:fixed;inset:0;z-index:500;background:rgba(14,13,11,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:2rem}
+.rev-modal-bg.on{display:flex}
+.rev-modal{background:var(--ink2);border:1px solid rgba(212,201,182,.1);width:100%;max-width:580px;padding:3rem;position:relative}
+.rev-modal-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;transition:color .3s}
+.rev-modal-close:hover{color:var(--parch2)}
+.rev-modal-title{font-family:var(--serif);font-size:1.8rem;color:var(--paper);font-weight:400;margin-bottom:.5rem}
+.rev-modal-sub{font-size:.82rem;color:var(--muted);margin-bottom:2rem;line-height:1.6}
+.rev-stars-pick{display:flex;gap:.4rem;margin-bottom:1.5rem}
+.rev-star{font-size:1.4rem;cursor:pointer;color:var(--muted);transition:color .2s;-webkit-user-select:none;user-select:none}
+.rev-star.on{color:var(--rose)}
+.rff{width:100%;background:var(--ink3);border:1px solid rgba(212,201,182,.09);color:var(--paper);padding:.9rem 1.1rem;font-size:.87rem;transition:border-color .3s;-webkit-appearance:none;display:block;margin-bottom:1px}
+.rff::placeholder{color:var(--muted)}
+.rff:focus{border-color:var(--rose2)}
+.rev-submitted{display:none;text-align:center;padding:2.5rem 1rem;font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--rose2);line-height:1.6}
+/* NOTE */
+.note{padding:6rem 0;background:var(--ink2);border-top:1px solid rgba(212,201,182,.07)}
+.note-inner{max-width:680px;margin:0 auto;padding:0 3rem}
+.note-label{display:block;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
+.note-body p{font-size:1rem;font-family:var(--serif);font-style:italic;color:var(--body);line-height:1.95;margin-bottom:1.3rem}
+.note-body p:last-child{margin-bottom:0}
+/* GALLERY CAROUSEL */
+.gallery{padding:8rem 0;background:var(--ink);border-top:1px solid rgba(212,201,182,.07)}
+.gallery-head{margin-bottom:3.5rem;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.gal-label{display:block;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rose);margin-bottom:1rem}
+.gal-h{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);color:var(--paper);line-height:1.05;font-weight:400}
+.gal-h em{font-style:italic;color:var(--parch2)}
+.carousel-wrap{overflow:hidden}
+.carousel-track{display:flex;gap:6px;transition:transform .7s var(--e1)}
+.car-slide{flex-shrink:0;width:calc((100% - 12px) / 3);height:480px;overflow:hidden}
+.car-slide img{width:100%;height:100%;object-position:center top;transition:transform .7s var(--e1)}
+.car-slide:hover img{transform:scale(1.04)}
+.car-nav{display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem}
+.car-btn{background:transparent;border:1px solid rgba(212,201,182,.15);color:var(--parch2);width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;transition:all .3s}
+.car-btn:hover{background:rgba(184,133,106,.12);border-color:var(--rose);color:var(--rose)}
+.car-btn:disabled{opacity:.25;cursor:default;pointer-events:none}
+.car-dots-wrap{display:flex;gap:.5rem;align-items:center}
+.car-dot{width:20px;height:1px;background:rgba(212,201,182,.2);border:none;cursor:pointer;padding:5px 0;transition:width .4s var(--e1),background .3s}
+.car-dot.on{width:38px;background:var(--rose)}
+.gallery-foot{margin-top:3rem;display:flex;align-items:center;gap:2.5rem}
+.gf-line{flex:1;height:1px;background:rgba(212,201,182,.07)}
+/* CONTACT */
+.contact{background:var(--ink2);padding:9rem 0;border-top:1px solid rgba(212,201,182,.07)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:9rem;align-items:start}
+.contact-label{display:block;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rose);margin-bottom:1.5rem}
+.contact-h{font-family:var(--serif);font-size:clamp(2.5rem,4.5vw,4rem);color:var(--paper);line-height:1;font-weight:400;margin-bottom:1.5rem}
+.contact-h em{font-style:italic;color:var(--parch2)}
+.contact-intro{font-size:.93rem;color:var(--body);line-height:1.85;margin-bottom:3rem}
+.cmethods{display:flex;flex-direction:column;gap:2px}
+.cm{display:flex;align-items:center;gap:1.2rem;padding:1.2rem 1.5rem;background:var(--ink3);border:1px solid rgba(212,201,182,.07);transition:background .3s,border-color .3s}
+.cm:hover{background:rgba(184,133,106,.05);border-color:rgba(184,133,106,.2)}
+.cm-ic{font-size:1.1rem;min-width:1.5rem;text-align:center}
+.cm-b{flex:1}
+.cm-lbl{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rose2);display:block}
+.cm-val{font-size:.87rem;color:var(--body);display:block;margin-top:.1rem}
+.cm-arr{color:var(--muted);font-size:.8rem;transition:transform .3s,color .3s}
+.cm:hover .cm-arr{transform:translateX(4px);color:var(--parch2)}
+.ql{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.8rem}
+.qr{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:2rem}
+.qb{background:transparent;border:1px solid rgba(212,201,182,.1);color:var(--muted);padding:.45rem .95rem;font-size:.67rem;letter-spacing:.1em;cursor:pointer;transition:all .25s}
+.qb:hover{border-color:var(--rose2);color:var(--parch)}
+.ff{width:100%;background:var(--ink3);border:1px solid rgba(212,201,182,.09);color:var(--paper);padding:.95rem 1.2rem;font-size:.87rem;transition:border-color .3s,background .3s;-webkit-appearance:none;display:block;margin-bottom:1px}
+.ff::placeholder{color:var(--muted)}
+.ff:focus{border-color:var(--rose2);background:rgba(184,133,106,.03)}
+.ffr{display:grid;grid-template-columns:1fr 1fr;gap:1px}
+.form-ok{display:none;font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--rose2);text-align:center;padding:3.5rem 2rem;border:1px solid rgba(184,133,106,.2)}
+/* FOOTER */
+.footer{background:var(--ink2);padding:2.5rem 0;border-top:1px solid rgba(212,201,182,.07)}
+.footer-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.flogo{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--parch2)}
+.fnote{font-size:.67rem;color:var(--muted);letter-spacing:.04em}
+.flinks{display:flex;gap:2rem}
+.flinks a{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:color .3s}
+.flinks a:hover{color:var(--parch2)}
+/* RESPONSIVE */
+@media(max-width:1060px){
+  .w{padding:0 2rem}.nav,.mob{padding-left:2rem;padding-right:2rem}
+  .nav-links{display:none}.burger{display:block}
+  .hero-content{grid-template-columns:1fr;gap:2rem;padding:0 2rem 4.5rem}
+  .hero-right{align-items:flex-start}.hero-tagline{text-align:left}
+  .about-grid{grid-template-columns:1fr;gap:3.5rem}
+  .about-col-img{position:static}.about-main-img{height:480px}
+  .sp{grid-template-columns:1fr}.sp:nth-child(even){direction:ltr}
+  .sp-img img{height:280px;min-height:280px}.sp-text{padding:3rem 2rem}
+  .attr-grid{grid-template-columns:1fr;gap:3.5rem}
+  .attr-img{height:420px}.attr-accent{display:none}
+  .reviews-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:4rem}
+  .wm{display:none}.full-strip{padding:2.5rem 2rem}
+  .car-slide{width:calc((100% - 6px) / 2);height:360px}
+}
+@media(max-width:640px){
+  .w{padding:0 1.5rem}.nav,.mob{padding-left:1.5rem;padding-right:1.5rem}
+  .about,.services,.attr,.reviews,.gallery,.contact,.note{padding:5rem 0}
+  .hero-content{padding:0 1.5rem 3.5rem}
+  .hero-name{font-size:clamp(3.5rem,13vw,6rem)}
+  .ffr,.car-slide{grid-template-columns:1fr}
+  .car-slide{width:100%;height:300px}
+  .footer-in{flex-direction:column;text-align:center}
+  .pq-inner,.note-inner{padding:0 1.5rem}
+  .sp-text{padding:2.5rem 1.5rem}.rcard{padding:2rem 1.5rem}
+  .about-pair img{height:160px}.rev-modal{padding:2rem 1.5rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .lm .i,.fu,.carousel-track,.hero-img,.sp-img img,.attr-img{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="wm" aria-hidden="true"><span>Joey Blackwood · Berlin Kreuzberg · Joey Blackwood · Berlin Kreuzberg · Joey Blackwood</span></div>
+
+<!-- NAV wird per JS aufgebaut -->
+<nav class="nav" id="mainNav">
+  <div class="nav-logo">Joey Blackwood</div>
+  <ul class="nav-links" id="navLinks"></ul>
+  <button class="burger" onclick="tmenu()" aria-label="Menü">&#9776;</button>
+</nav>
+<div class="mob" id="mob"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="fotos/startseite-1.png" alt="Joey Blackwood" class="hero-img on" id="hi0"/>
+    <img src="fotos/startseite-2.png" alt="Joey Blackwood" class="hero-img" id="hi1"/>
+    <div class="hero-vig"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <span class="hero-eyebrow he" id="h-ort"></span>
+      <h1 class="hero-name he" id="h-name"></h1>
+      <p class="hero-sub he" id="h-sub"></p>
+    </div>
+    <div class="hero-right">
+      <p class="hero-tagline he" id="h-tagline"></p>
+      <div class="hero-cta-wrap he">
+        <a href="#contact" class="btn btn-rose" id="h-btn"></a>
+        <div class="hero-dots">
+          <button class="hdot on" onclick="goSlide(0)" aria-label="Bild 1"></button>
+          <button class="hdot" onclick="goSlide(1)" aria-label="Bild 2"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="hero-scroll-line"></div><span>Scroll</span>
+  </div>
+</section>
+
+<!-- Alle weiteren Sektionen werden per JS eingebaut -->
+<div id="page-sections"></div>
+
+<!-- Kontakt immer am Ende -->
+<div class="rule"></div>
+<section class="contact" id="contact">
+  <div class="w">
+    <div class="contact-grid">
+      <div>
+        <span class="contact-label fu">Kontakt</span>
+        <h2 class="contact-h fu s1">Beginne mit einer<br/><em>einfachen Nachricht.</em></h2>
+        <p class="contact-intro fu s2" id="ct-intro"></p>
+        <div class="cmethods fu s3" id="ct-methods"></div>
+      </div>
+      <div class="fu s2">
+        <span class="ql">Schnell ausfüllen</span>
+        <div class="qr" id="qr-btns"></div>
+        <form id="cForm" onsubmit="sForm(event)">
+          <div class="ffr" style="margin-bottom:1px">
+            <input class="ff" type="text" id="fn" placeholder="Name (optional)"/>
+            <input class="ff" type="text" id="fa" placeholder="Alter (optional)"/>
+          </div>
+          <select class="ff" id="fs"><option value="">Service wählen…</option></select>
+          <div class="ffr" style="margin-bottom:1px">
+            <input class="ff" type="text" id="fd" placeholder="Wunschdatum"/>
+            <input class="ff" type="text" id="fdu" placeholder="Dauer"/>
+          </div>
+          <textarea class="ff" id="fm" rows="5" placeholder="Deine Nachricht…"></textarea>
+          <div class="ffr" style="margin-bottom:1px">
+            <select class="ff" id="fk">
+              <option value="">Kontaktweg…</option>
+              <option>WhatsApp</option><option>Telegram</option>
+              <option>E-Mail</option><option>SMS</option>
+            </select>
+            <input class="ff" type="text" id="fki" placeholder="Deine Kontaktdaten"/>
+          </div>
+          <button type="submit" class="btn btn-rose btn-full" style="margin-top:1px">Anfrage senden</button>
+        </form>
+        <div class="form-ok" id="formOk">Danke — ich melde mich bald.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="w footer-in">
+    <span class="flogo">Joey Blackwood</span>
+    <p class="fnote" id="ft-note"></p>
+    <div class="flinks">
+      <a href="impressum.html">Impressum</a>
+      <a href="impressum.html#datenschutz">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Review modal -->
+<div class="rev-modal-bg" id="revModalBg" onclick="closeRevModal(event)">
+  <div class="rev-modal">
+    <button class="rev-modal-close" onclick="document.getElementById('revModalBg').classList.remove('on')">✕</button>
+    <h3 class="rev-modal-title">Deine Erfahrung</h3>
+    <p class="rev-modal-sub">Dein Review wird erst nach meiner Freigabe veröffentlicht. Du kannst anonym bleiben.</p>
+    <form id="revForm" onsubmit="submitReview(event)">
+      <div class="rev-stars-pick" id="starPick">
+        <span class="rev-star" data-v="1">★</span><span class="rev-star" data-v="2">★</span>
+        <span class="rev-star" data-v="3">★</span><span class="rev-star" data-v="4">★</span>
+        <span class="rev-star" data-v="5">★</span>
+      </div>
+      <input type="hidden" id="revStars" value="5"/>
+      <textarea class="rff" id="revText" rows="5" placeholder="Deine Erfahrung beschreiben…" required></textarea>
+      <input class="rff" type="text" id="revName" placeholder="Name oder Pseudonym (optional)" style="margin-top:1px"/>
+      <input class="rff" type="text" id="revCity" placeholder="Stadt (optional)" style="margin-top:1px;margin-bottom:1.5rem"/>
+      <button type="submit" class="btn btn-rose btn-full">Absenden</button>
+    </form>
+    <div class="rev-submitted" id="revSubmitted">
+      Danke für dein Review.<br/>Ich prüfe es und schalte es frei wenn es passt.
+    </div>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════
+   INHALT — alle Texte & Einstellungen
+   Hier kannst du alles anpassen!
+══════════════════════════════════════════ */
+const INHALT = {
+
+  layout: {
+    zeige_uebermich:   true,
+    zeige_services:    true,
+    zeige_zitat:       false,
+    zeige_anziehung:   true,
+    zeige_reviews:     true,
+    zeige_notiz:       true,
+    zeige_galerie:     true,
+  },
+
+  seo: {
+    titel:        'Joey Blackwood — Escort & Companion Berlin Kreuzberg',
+    beschreibung: 'Joey Blackwood — diskreter Escort und Companion in Berlin Kreuzberg. Begleitung, Massage, Couples Experiences.',
+    keywords:     'Escort Berlin, Escort Kreuzberg, männlicher Escort, Companion Berlin',
+    url:          'https://joeyblackwood.de',
+    bild:         'fotos/startseite-1.png',
+  },
+
+  kontakt: {
+    whatsapp:     '4915161424677',
+    telegram:     '@JoeyBlackwoodEscort',
+    email:        'kontakt@joeyblackwood.de',
+    sms:          '+49 151 6142 4677',
+    antwortzeit:  'Erzähl mir, wann und wo du mich treffen möchtest, wie viel Zeit wir miteinander verbringen sollen und was du dir von unserer Begegnung wünschst.',
+    antwortzeit2: 'Ich freue mich darauf, von dir zu hören.',
+  },
+
+  hero: {
+    ort:        'Berlin Kreuzberg',
+    name1:      'Joey',
+    name2:      'Blackwood',
+    untertitel: 'Escort & Companion',
+    tagline:    'Für Menschen, die sich nach körperlicher Nähe, prickelnder Spannung und außergewöhnlichen Erlebnissen sehnen.',
+    button:     'Anfrage senden',
+  },
+
+  uebermich: {
+    label:   'Über mich',
+    titel1:  'Wer ich bin',
+    titel2:  '',
+    absaetze: [
+      'Ich lebe in Berlin Kreuzberg und begleite Menschen, die sich nach Aufmerksamkeit, Sinnlichkeit und einem Gegenüber sehnen, bei dem sie sich fallen lassen können.',
+      'Viele beschreiben mich als ruhig, präsent und selbstbewusst. Ich genieße gute Gespräche genauso wie die Spannung, die entstehen kann, wenn Worte langsam überflüssig werden.',
+      'Je nach Situation bin ich aufmerksam und zurückhaltend oder übernehme die Führung, wenn genau das gewünscht ist.',
+      'Vielleicht suchst du einen stilvollen Begleiter für einen Abend. Vielleicht neugierige Nähe. Vielleicht ein Abenteuer, das noch lange in Erinnerung bleibt.',
+    ],
+    chemie_absaetze: [
+      'Die ersten Minuten eines Treffens sind für mich genauso wichtig wie für dich. Deshalb nehmen wir uns Zeit, uns kennenzulernen und anzukommen.',
+      'Sollte innerhalb der ersten 15 Minuten das Gefühl entstehen, dass die Chemie nicht stimmt oder die Erwartungen nicht zusammenpassen, kannst du das Treffen jederzeit beenden.',
+      'In diesem Fall entstehen für dich <strong>keine Kosten.</strong>',
+    ],
+  },
+
+  services: {
+    label:  'Was ich anbiete',
+    titel1: 'Services &',
+    titel2: 'Erlebnisse',
+    karten: [
+      {
+        nr: 'i.', titel1: 'Begleitung &', titel2: 'Gesellschaft',
+        bild: 'fotos/service-begleitung.png', preis: '75 €/h', dauer: 'Min. 2 Stunden',
+        absaetze: [
+          'Ein Abend, der sich nicht wie Arbeit anfühlt — für keinen von uns. Ich begleite dich zu Dinner, Kultur, Events oder einfach durch die Stadt. Vollständig präsent, ohne Ablenkung.',
+          'Auch Reisebegleitung innerhalb Deutschlands und Europas ist möglich.',
+        ],
+      },
+      {
+        nr: 'ii.', titel1: 'Massage &', titel2: 'Sinnlichkeit',
+        bild: 'fotos/service-massage.png', preis: '120 €/h', dauer: '60 – 120 Minuten',
+        absaetze: [
+          'Von klassischer Entspannung bis zur erotischen Massage — ich nehme mir Zeit. Kein Takt, kein Druck. Ich lerne deinen Körper kennen und bringe dich dahin, wo du ankommen möchtest.',
+          'In meinen Räumen in Kreuzberg oder bei dir.',
+        ],
+      },
+      {
+        nr: 'iii.', titel1: 'Bondage &', titel2: 'Power Exchange',
+        bild: 'fotos/service-bondage.png', preis: '250 €/h', dauer: 'Nach Absprache',
+        absaetze: [
+          'Vertrauen. Spannung. Kontrolle.',
+          'Für Menschen, die neugierig auf Bondage, Power Exchange oder andere Formen bewusster Dynamik sind, biete ich einen Rahmen, in dem Kommunikation, Sicherheit und gegenseitiges Vertrauen an erster Stelle stehen.',
+          '<em>Manchmal entsteht Intensität nicht durch das, was passiert. Sondern durch die Person, die die Situation führt.</em>',
+        ],
+      },
+      {
+        nr: 'iv.', titel1: 'Couples', titel2: 'Experiences',
+        bild: 'fotos/service-couples.png', preis: '300 €/h', dauer: 'Für Paare',
+        absaetze: [
+          'Viele Paare schreiben mir, weil sie neugierig sind — auf etwas Neues, auf eine Fantasie, oder einfach darauf, wie es sich anfühlt, jemanden Dritten einzuladen.',
+          'Manche haben eine ganz konkrete Vorstellung. Andere möchten erst schauen, was sich gut anfühlt und wohin der Abend sie führt. <em>Beides hat seinen Reiz.</em>',
+          'Mir ist wichtig, dass wir offen miteinander sprechen. Der Rest ergibt sich meistens von selbst.',
+        ],
+      },
+    ],
+    fullservice: {
+      label: 'Full Service',
+      absaetze: [
+        'Manche Begegnungen lassen sich schwer in Kategorien einordnen.',
+        'Wenn du eine ganz bestimmte Vorstellung hast oder etwas Individuelles suchst, erzähl mir davon. Die interessantesten Abende folgen selten einem festen Ablauf.',
+        'Full Service: 250 €/h',
+      ],
+      button: 'Anfrage senden',
+    },
+  },
+
+  zitat: {
+    text:  'Die interessantesten Begegnungen beginnen oft genau dort, wo Menschen aufhören, sich zu verstellen.',
+    autor: '— Joey Blackwood, Berlin',
+  },
+
+  anziehung: {
+    label:  'Was mich anzieht',
+    titel1: 'Für mich hat Anziehung wenig mit Perfektion zu tun',
+    titel2: '',
+    absaetze: [
+      'Viel wichtiger sind Persönlichkeit, Ausstrahlung und die Energie, die jemand mitbringt. Die Dinge, die einen Menschen wirklich interessant machen, lassen sich ohnehin nicht in einem Foto festhalten.',
+      '<em>Wenn du dich fragst, ob du attraktiv genug bist, kann ich dir wahrscheinlich schon jetzt sagen: Du machst dir deutlich mehr Gedanken darüber als ich.</em>',
+    ],
+  },
+
+  reviews: {
+    label:  'Reviews',
+    titel1: 'Was andere',
+    titel2: 'berichten.',
+    eintraege: [
+      {
+        text:   'Es war eine Begegnung die mir noch lange im Kopf bleiben wird. Danke Joey ;)',
+        person: 'Lucky Girl, 58 · Berlin', sterne: 5,
+      },
+      {
+        text:   'Unser erstes Mal zu Dritt war aufregend und ehrlich gesagt auch etwas einschüchternd. Er hat es geschafft, dass wir uns beide vom ersten Moment an wohlgefühlt haben. Alles wirkte natürlich, respektvoll und entspannt. Genau die Erfahrung, die wir uns erhofft hatte',
+        person: 'Anonym · Hamburg', sterne: 5,
+      },
+      {
+        text:   'Meeting Joey was a dream come true! He has the perfect balance of affection and dominance that fullfilled so many of my wishes while also having a calming presence, I was left feeling extremely happy.',
+        person: 'Alice, 35 · Melbourne', sterne: 5,
+      },
+      {
+        text:   'Selten erlebt, dass jemand so präsent ist. Kein Blick aufs Handy, kein Gedanke woanders. Das klingt selbstverständlich — ist es nicht... und sein bestes Stück, seid gespannt :)',
+        person: 'Anonym · Berlin', sterne: 5,
+      },
+    ],
+  },
+
+  notiz: {
+    label: 'Ein paar Dinge über mich',
+    absaetze: [
+      'Ich tanze leidenschaftlich gerne, trainiere regelmäßig und verbringe so viel Zeit wie möglich draußen in der Natur.',
+      'Ich mag gute Gespräche, spontane Abenteuer und Menschen, die neugierig geblieben sind.',
+      'Vielleicht ist genau das der Grund, warum keine Begegnung der anderen gleicht.',
+    ],
+  },
+
+  galerie: {
+    label: 'Einblicke', titel1: 'Selected', titel2: 'Moments',
+    privat_button: 'Private Galerie →',
+  },
+
+  footer: {
+    hinweis: 'Berlin Kreuzberg · Diskret & vertraulich · Nur für Erwachsene (18+)',
+  },
+};
+</script>
+<script>
+/* ══════════════════════════════════════════
+   HILFS-FUNKTIONEN
+══════════════════════════════════════════ */
+const $ = id => document.getElementById(id);
+function set(id,html){const el=$(id);if(el)el.innerHTML=html}
+function txt(id,t){const el=$(id);if(el)el.textContent=t}
+function hide(el){if(el)el.style.display='none'}
+function show(el,d='block'){if(el)el.style.display=d}
+
+/* ══════════════════════════════════════════
+   SEO — Meta-Tags aus inhalt.js
+══════════════════════════════════════════ */
+function applySEO(){
+  const s=INHALT.seo;
+  document.title=s.titel;
+  $('meta-title').textContent=s.titel;
+  $('meta-desc').setAttribute('content',s.beschreibung);
+  $('meta-keys').setAttribute('content',s.keywords);
+  $('meta-canon').setAttribute('href',s.url);
+  $('og-title').setAttribute('content',s.titel);
+  $('og-desc').setAttribute('content',s.beschreibung);
+  $('og-url').setAttribute('content',s.url);
+  $('og-img').setAttribute('content',s.url+'/'+s.bild);
+  // Schema.org
+  $('schema-json').textContent=JSON.stringify({
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Joey Blackwood",
+    "description":s.beschreibung,
+    "url":s.url,
+    "address":{"@type":"PostalAddress","addressLocality":"Berlin","addressRegion":"Berlin","addressCountry":"DE"},
+    "areaServed":"Berlin"
+  });
+}
+
+/* ══════════════════════════════════════════
+   NAV aufbauen (nur aktive Sektionen)
+══════════════════════════════════════════ */
+function buildNav(){
+  const L=INHALT.layout;
+  const links=[];
+  if(L.zeige_uebermich) links.push(['#about','Über mich']);
+  if(L.zeige_services)  links.push(['#services','Services']);
+  if(L.zeige_anziehung) links.push(['#attraction','Anziehung']);
+  if(L.zeige_reviews)   links.push(['#reviews','Stimmen']);
+  if(L.zeige_galerie)   links.push(['#gallery','Galerie']);
+  links.push(['gallery.html','Privat']);
+  links.push(['#contact','Anfrage','nav-cta']);
+
+  const navHtml=links.map(([href,label,cls=''])=>`<li><a href="${href}" class="${cls}" onclick="cmenu()">${label}</a></li>`).join('');
+  set('navLinks',navHtml);
+  set('mob',links.map(([href,label])=>`<a href="${href}" onclick="cmenu()">${label}</a>`).join(''));
+}
+
+/* ══════════════════════════════════════════
+   SEKTIONEN aufbauen
+══════════════════════════════════════════ */
+function buildSections(){
+  const L=INHALT.layout;
+  let html='';
+
+  /* ÜBER MICH */
+  if(L.zeige_uebermich){
+    const U=INHALT.uebermich;
+    html+=`
+    <div class="rule"></div>
+    <section class="about" id="about">
+      <div class="w">
+        <div class="about-grid">
+          <div class="about-col-img fu">
+            <img src="fotos/uebermich-1.png" alt="Joey Blackwood" class="about-main-img"/>
+            <div class="about-pair">
+              <img src="fotos/uebermich-2.png" alt="Joey Blackwood"/>
+              <img src="fotos/uebermich-3.png" alt="Joey Blackwood"/>
+            </div>
+          </div>
+          <div>
+            <span class="about-label fu">${U.label}</span>
+            <h2 class="about-h">
+              <span class="lm"><span class="i">${U.titel1}</span></span>
+              <span class="lm s1"><span class="i">${U.titel2}</span></span>
+            </h2>
+            <div class="about-body fu s2">${U.absaetze.map(p=>`<p>${p}</p>`).join('')}</div>
+            <div class="chem-box fu s3">${U.chemie_absaetze.map(p=>`<p>${p}</p>`).join('')}</div>
+          </div>
+        </div>
+      </div>
+    </section>`;
+  }
+
+  /* SERVICES */
+  if(L.zeige_services){
+    const S=INHALT.services;
+    const panels=S.karten.map((k,i)=>`
+      <div class="sp fu">
+        <div class="sp-img"><img src="${k.bild}" alt="${k.titel1}"/></div>
+        <div class="sp-text">
+          <div>
+            <span class="sp-n">${k.nr}</span>
+            <h3 class="sp-title">${k.titel1}<br/><em>${k.titel2}</em></h3>
+            <div class="sp-body">${k.absaetze.map(p=>`<p>${p}</p>`).join('')}</div>
+          </div>
+          <div class="sp-foot">
+            <span class="sp-price">${k.preis}</span>
+            <span class="sp-dur">${k.dauer}</span>
+          </div>
+        </div>
+      </div>`).join('');
+    const fs=S.fullservice;
+    html+=`
+    <div class="rule"></div>
+    <section class="services" id="services">
+      <div class="w">
+        <div class="services-head fu">
+          <span class="svc-head-label">${S.label}</span>
+          <h2 class="svc-head-h">
+            <span class="lm"><span class="i">${S.titel1}</span></span>
+            <span class="lm s1"><span class="i"><em>${S.titel2}</em></span></span>
+          </h2>
+        </div>
+      </div>
+      ${panels}
+      <div class="full-strip fu">
+        <div><span class="fl">${fs.label}</span>${fs.absaetze.map(p=>`<p>${p}</p>`).join('')}<p style="margin-top:1rem;font-size:.78rem;color:var(--muted);border-top:1px solid rgba(212,201,182,.08);padding-top:1rem">Alle Preise: Begleitung 75 €/h · Massage 120 €/h · Bondage 250 €/h · Couples 300 €/h · Full Service 250 €/h<br/>Outcall bei Massage, Bondage, Couples & Full Service: +50 €</p></div>
+        <a href="#contact" class="btn btn-outline" style="white-space:nowrap;flex-shrink:0">${fs.button}</a>
+      </div>
+    </section>`;
+  }
+
+  /* ZITAT */
+  if(L.zeige_zitat){
+    const Z=INHALT.zitat;
+    html+=`
+    <div class="pq">
+      <div class="pq-inner fu">
+        <span class="pq-mark" aria-hidden="true">"</span>
+        <p class="pq-text">${Z.text}</p>
+        <span class="pq-attr">${Z.autor}</span>
+      </div>
+    </div>`;
+  }
+
+  /* ANZIEHUNG */
+  if(L.zeige_anziehung){
+    const A=INHALT.anziehung;
+    html+=`
+    <section class="attr" id="attraction">
+      <div class="w">
+        <div class="attr-grid">
+          <div class="attr-img-wrap fu">
+            <img src="fotos/anziehung-1.png" alt="Joey Blackwood" class="attr-img"/>
+            <div class="attr-accent fu s2"><img src="fotos/anziehung-2.png" alt=""/></div>
+          </div>
+          <div>
+            <span class="attr-label fu">${A.label}</span>
+            <h2 class="attr-h fu s1">${A.titel1}<br/><em>${A.titel2}</em></h2>
+            <div class="attr-body fu s2">${A.absaetze.map(p=>`<p>${p}</p>`).join('')}</div>
+          </div>
+        </div>
+      </div>
+    </section>`;
+  }
+
+  /* REVIEWS */
+  if(L.zeige_reviews){
+    const R=INHALT.reviews;
+    html+=`
+    <div class="rule"></div>
+    <section class="reviews" id="reviews">
+      <div class="w">
+        <div class="reviews-top fu">
+          <div>
+            <span class="rev-label">${R.label}</span>
+            <h2 class="rev-h">${R.titel1}<br/><em>${R.titel2}</em></h2>
+          </div>
+          <button class="rev-write-btn" onclick="document.getElementById('revModalBg').classList.add('on')">Review schreiben ↗</button>
+        </div>
+        <div class="reviews-grid fu s1" id="reviews-grid"></div>
+      </div>
+    </section>`;
+  }
+
+  /* PERSÖNLICHE NOTIZ */
+  if(L.zeige_notiz){
+    const N=INHALT.notiz;
+    html+=`
+    <div class="rule"></div>
+    <section class="note">
+      <div class="note-inner fu">
+        <span class="note-label">${N.label}</span>
+        <div class="note-body">${N.absaetze.map(p=>`<p>${p}</p>`).join('')}</div>
+      </div>
+    </section>`;
+  }
+
+  /* GALERIE */
+  if(L.zeige_galerie){
+    const G=INHALT.galerie;
+    html+=`
+    <div class="rule"></div>
+    <section class="gallery" id="gallery">
+      <div class="w">
+        <div class="gallery-head fu">
+          <div>
+            <span class="gal-label">${G.label}</span>
+            <h2 class="gal-h">${G.titel1} <em>${G.titel2}</em></h2>
+          </div>
+          <a href="gallery.html" class="btn btn-outline">${G.privat_button}</a>
+        </div>
+        <div class="carousel-wrap fu">
+          <div class="carousel-track" id="carTrack"></div>
+        </div>
+        <div class="car-nav fu s1">
+          <button class="car-btn" id="carPrev" onclick="carMove(-1)">&#8592;</button>
+          <div class="car-dots-wrap" id="carDots"></div>
+          <button class="car-btn" id="carNext" onclick="carMove(1)">&#8594;</button>
+        </div>
+        <div class="gallery-foot fu s2">
+          <div class="gf-line"></div>
+          <a href="gallery.html" class="btn btn-outline">${G.privat_button}</a>
+          <div class="gf-line"></div>
+        </div>
+      </div>
+    </section>`;
+  }
+
+  $('page-sections').innerHTML=html;
+}
+
+/* ══════════════════════════════════════════
+   KONTAKT aufbauen
+══════════════════════════════════════════ */
+function buildContact(){
+  const K=INHALT.kontakt;
+  txt('ct-intro',K.antwortzeit);
+  if(K.antwortzeit2){
+    const el=$('ct-intro');
+    if(el) el.innerHTML=K.antwortzeit+'<p style="margin-top:1rem">'+K.antwortzeit2+'</p>';
+  }
+  const wa=K.whatsapp;
+  set('ct-methods',`
+    <a href="https://wa.me/${wa}" target="_blank" class="cm">
+      <span class="cm-ic">💬</span>
+      <div class="cm-b"><span class="cm-lbl">WhatsApp</span><span class="cm-val">+49 ${wa.slice(2)}</span></div>
+      <span class="cm-arr">→</span>
+    </a>
+    <a href="https://t.me/${K.telegram.replace('@','')}" target="_blank" class="cm">
+      <span class="cm-ic">✈</span>
+      <div class="cm-b"><span class="cm-lbl">Telegram</span><span class="cm-val">${K.telegram}</span></div>
+      <span class="cm-arr">→</span>
+    </a>
+    <a href="mailto:${K.email}" class="cm">
+      <span class="cm-ic">✉</span>
+      <div class="cm-b"><span class="cm-lbl">E-Mail</span><span class="cm-val">${K.email}</span></div>
+      <span class="cm-arr">→</span>
+    </a>
+    <a href="sms:${K.sms.replace(/\s/g,'')}" class="cm">
+      <span class="cm-ic">📱</span>
+      <div class="cm-b"><span class="cm-lbl">SMS</span><span class="cm-val">${K.sms}</span></div>
+      <span class="cm-arr">→</span>
+    </a>`);
+
+  // Quick-fill buttons & select options from services
+  const qFills=[
+    {label:'Massage',    svc:'Massage',     msg:'Hallo Joey,\n\nich würde gerne eine Massage buchen.\n\nViele Grüße',dur:'60–90 Min'},
+    {label:'Begleitung', svc:'Begleitung',  msg:'Hallo Joey,\n\nich suche einen Begleiter für einen besonderen Abend.\n\nViele Grüße',dur:'3–4 Stunden'},
+    {label:'Bondage',    svc:'Bondage',     msg:'Hallo Joey,\n\nich bin neugierig auf Bondage / Power Exchange.\n\nViele Grüße',dur:'Nach Absprache'},
+    {label:'Für Paare',  svc:'Couples',     msg:'Hallo Joey,\n\nwir sind ein Paar und neugierig auf ein gemeinsames Erlebnis.\n\nHerzliche Grüße',dur:'2–3 Stunden'},
+    {label:'Kennenlernen',svc:'Kennen',     msg:'Hallo Joey,\n\nich würde dich gerne zuerst kennenlernen.\n\nViele Grüße',dur:'–'},
+  ];
+  set('qr-btns',qFills.map((q,i)=>`<button class="qb" onclick="qf(${i})">${q.label}</button>`).join(''));
+  window._qFills=qFills;
+
+  // Dynamische Service-Optionen
+  const sel=$('fs');
+  INHALT.services.karten.forEach(k=>{
+    const o=document.createElement('option');
+    o.textContent=k.titel1.replace('&','&')+' '+k.titel2;
+    sel.appendChild(o);
+  });
+  const fso=document.createElement('option');
+  fso.textContent='Full Service';sel.appendChild(fso);
+  const ko=document.createElement('option');
+  ko.textContent='Kennenlernen';sel.appendChild(ko);
+
+  txt('ft-note',INHALT.footer.hinweis);
+}
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+function buildHero(){
+  const H=INHALT.hero;
+  txt('h-ort',H.ort);
+  set('h-name',`${H.name1}<br/><em>${H.name2}</em>`);
+  txt('h-sub',H.untertitel);
+  txt('h-tagline',H.tagline);
+  txt('h-btn',H.button);
+  // Animate in
+  document.querySelectorAll('.he').forEach((el,i)=>{
+    el.style.opacity='0';
+    el.style.transform='translateY(14px)';
+    el.style.transition=`opacity .8s ${.2+i*.18}s var(--e1),transform .8s ${.2+i*.18}s var(--e1)`;
+  });
+  window.addEventListener('load',()=>{
+    document.querySelectorAll('.he').forEach(el=>{el.style.opacity='1';el.style.transform='translateY(0)'});
+  });
+}
+
+/* ══════════════════════════════════════════
+   REVIEWS
+══════════════════════════════════════════ */
+function renderReviews(){
+  const grid=$('reviews-grid');
+  if(!grid)return;
+  const all=[...INHALT.reviews.eintraege];
+  if(all.length===0){
+    grid.innerHTML='<div style="padding:3rem;background:var(--ink2);color:var(--muted);text-align:center;grid-column:span 2;font-size:.9rem">Noch keine Reviews.</div>';
+    return;
+  }
+  grid.innerHTML=all.map(r=>`
+    <div class="rcard fu">
+      <span class="rcard-quote">\u201c</span>
+      <p class="rcard-text">${r.text}</p>
+      <div class="rcard-foot">
+        <span class="rcard-person">${r.person}</span>
+        <span class="rcard-stars">${'★'.repeat(r.sterne||5)}</span>
+      </div>
+    </div>`).join('');
+}
+
+/* Star picker */
+let pickedStars=5;
+document.querySelectorAll('.rev-star').forEach(star=>{
+  star.addEventListener('click',()=>{
+    pickedStars=+star.dataset.v;
+    $('revStars').value=pickedStars;
+    document.querySelectorAll('.rev-star').forEach((s,i)=>s.classList.toggle('on',i<pickedStars));
+  });
+  star.addEventListener('mouseenter',()=>{
+    const v=+star.dataset.v;
+    document.querySelectorAll('.rev-star').forEach((s,i)=>s.classList.toggle('on',i<v));
+  });
+  star.addEventListener('mouseleave',()=>{
+    document.querySelectorAll('.rev-star').forEach((s,i)=>s.classList.toggle('on',i<pickedStars));
+  });
+});
+// default 5 stars lit
+document.querySelectorAll('.rev-star').forEach(s=>s.classList.add('on'));
+
+function closeRevModal(e){
+  if(e&&e.target!==$('revModalBg'))return;
+  $('revModalBg').classList.remove('on');
+}
+
+function submitReview(e){
+  e.preventDefault();
+  const text=$('revText').value.trim();
+  const name=$('revName').value.trim()||'Anonym';
+  const city=$('revCity').value.trim();
+  const stars=+$('revStars').value||5;
+  if(!text)return;
+  const person=name+(city?' · '+city:'');
+  // Notify via WhatsApp
+  const msg=`⭐ Neues Review (${stars}/5)\n\n"${text}"\n\n— ${person}\n\n→ In index.html eintragen wenn du es veröffentlichen möchtest.`;
+  window.open(`https://wa.me/${INHALT.kontakt.whatsapp}?text=${encodeURIComponent(msg)}`,'_blank');
+  $('revForm').style.display='none';
+  $('revSubmitted').style.display='block';
+}
+
+/* ══════════════════════════════════════════
+   CAROUSEL
+══════════════════════════════════════════ */
+const carBilder=[
+  'fotos/galerie-1.png','fotos/galerie-2.png','fotos/galerie-3.png',
+  'fotos/galerie-4.png','fotos/galerie-5.png','fotos/galerie-6.png',
+];
+const VISIBLE=3;
+let carPos=0;
+const maxPos=carBilder.length-VISIBLE;
+
+function buildCarousel(){
+  const track=$('carTrack'),dotsEl=$('carDots');
+  if(!track||!dotsEl)return;
+  carBilder.forEach(src=>{
+    const s=document.createElement('div');s.className='car-slide';
+    s.innerHTML=`<img src="${src}" alt=""/>`;track.appendChild(s);
+  });
+  for(let i=0;i<=maxPos;i++){
+    const d=document.createElement('button');d.className='car-dot'+(i===0?' on':'');
+    d.onclick=()=>carGoTo(i);d.setAttribute('aria-label',`Position ${i+1}`);dotsEl.appendChild(d);
+  }
+  updateCar();
+}
+function updateCar(){
+  const track=$('carTrack');if(!track)return;
+  const w=track.parentElement.offsetWidth;
+  const slideW=w/VISIBLE;
+  track.style.transform=`translateX(-${carPos*(slideW+2)}px)`;
+  document.querySelectorAll('.car-dot').forEach((d,i)=>d.classList.toggle('on',i===carPos));
+  const prev=$('carPrev'),next=$('carNext');
+  if(prev)prev.disabled=carPos<=0;
+  if(next)next.disabled=carPos>=maxPos;
+}
+function carMove(d){carPos=Math.max(0,Math.min(maxPos,carPos+d));updateCar()}
+function carGoTo(i){carPos=Math.max(0,Math.min(maxPos,i));updateCar()}
+window.addEventListener('resize',updateCar,{passive:true});
+
+/* ══════════════════════════════════════════
+   NAV
+══════════════════════════════════════════ */
+const navEl=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>navEl.classList.toggle('s',scrollY>50),{passive:true});
+function tmenu(){$('mob').classList.toggle('on')}
+function cmenu(){$('mob').classList.remove('on')}
+
+/* ══════════════════════════════════════════
+   HERO SLIDESHOW
+══════════════════════════════════════════ */
+const hSlides=[$('hi0'),$('hi1')];
+const hDots=document.querySelectorAll('.hdot');
+let hCur=0,hTimer;
+function goSlide(i){
+  hSlides[hCur].classList.remove('on');hDots[hCur].classList.remove('on');
+  hCur=i;hSlides[hCur].classList.add('on');hDots[hCur].classList.add('on');
+  clearInterval(hTimer);hTimer=setInterval(()=>goSlide((hCur+1)%2),7000);
+}
+hTimer=setInterval(()=>goSlide((hCur+1)%2),7000);
+
+/* Hero parallax */
+window.addEventListener('scroll',()=>{
+  const h=$('hi0');if(h&&scrollY<innerHeight)h.style.transform=`translateY(${scrollY*.14}px)`;
+},{passive:true});
+
+/* ══════════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════════ */
+function initReveal(){
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting)return;
+      const el=entry.target;
+      if(el.classList.contains('fu'))el.classList.add('on');
+      if(el.classList.contains('lm'))el.classList.add('on');
+      el.querySelectorAll('.lm').forEach((lm,i)=>setTimeout(()=>lm.classList.add('on'),i*140));
+      el.querySelectorAll('.fu').forEach((fu,i)=>setTimeout(()=>fu.classList.add('on'),i*100));
+      io.unobserve(el);
+    });
+  },{threshold:0.07,rootMargin:'0px 0px -55px 0px'});
+  document.querySelectorAll('section,.about-grid,.attr-grid,.contact-grid,.lm,.fu').forEach(el=>io.observe(el));
+}
+
+/* ══════════════════════════════════════════
+   QUICK FILL
+══════════════════════════════════════════ */
+function qf(i){
+  const t=window._qFills[i];if(!t)return;
+  const sel=$('fs');
+  for(let j=0;j<sel.options.length;j++)
+    if(sel.options[j].text.toLowerCase().includes(t.svc.toLowerCase())){sel.selectedIndex=j;break}
+  $('fm').value=t.msg;$('fdu').value=t.dur;
+  $('cForm').scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+/* ══════════════════════════════════════════
+   CONTACT FORM
+══════════════════════════════════════════ */
+function sForm(e){
+  e.preventDefault();
+  const v=id=>$(id)?.value||'';
+  const msg=`Anfrage — Joey Blackwood\n\nName: ${v('fn')||'Anonym'}\nAlter: ${v('fa')||'–'}\nService: ${v('fs')||'–'}\nDatum: ${v('fd')||'–'}\nDauer: ${v('fdu')||'–'}\nKontaktweg: ${v('fk')||'–'}\nKontakt: ${v('fki')||'–'}\n\n${v('fm')}`;
+  window.open(`https://wa.me/${INHALT.kontakt.whatsapp}?text=${encodeURIComponent(msg)}`,'_blank');
+  $('cForm').style.display='none';$('formOk').style.display='block';
+}
+
+/* ══════════════════════════════════════════
+   ALLES STARTEN
+══════════════════════════════════════════ */
+applySEO();
+buildHero();
+buildNav();
+buildSections();
+buildContact();
+renderReviews();
+buildCarousel();
+initReveal();
+</script>
+</body>
+</html>
